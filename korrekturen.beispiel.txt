@@ -1,0 +1,10 @@
+# Whisper verhoert Eigennamen - hier werden sie nach der Transkription korrigiert.
+# Eine Regel pro Zeile:   falsch => richtig
+# Gross/Kleinschreibung wird ignoriert. Zeilen mit # werden uebersprungen.
+#
+# Kopiere diese Datei nach korrekturen.txt und trage deine eigenen Marken-,
+# Produkt- und Personennamen ein. Beispiele:
+
+# Page Fix => PageFix
+# Aktiv Campaign => ActiveCampaign
+# Mighty Network => Mighty Networks

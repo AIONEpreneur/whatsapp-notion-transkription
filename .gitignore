@@ -1,0 +1,24 @@
+# Persoenliche Konfiguration & Geheimnisse - NIE committen
+konfiguration.json
+korrekturen.txt
+.env
+*.env
+
+# Laufzeit-Daten
+converted/
+Transkripte/
+.arbeit/
+.logs/
+*.opus
+*.ogg
+*.m4a
+*.aac
+*.wav
+*.mp3
+
+# Python
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store

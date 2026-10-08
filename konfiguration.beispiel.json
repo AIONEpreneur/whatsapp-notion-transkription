@@ -1,0 +1,9 @@
+{
+  "audio_ordner": "~/Desktop/WhatsApp-Audio",
+  "transkripte_ordner": "~/Desktop/WhatsApp-Audio/Transkripte",
+  "whisper_modell": "~/whisper-modelle/ggml-large-v3-turbo.bin",
+  "env_datei": "~/.config/whatsapp-workflow/.env",
+  "crm_db_id": "HIER-DEINE-CRM-DATENBANK-ID",
+  "transkript_db_id": "HIER-DEINE-TRANSKRIPT-DATENBANK-ID",
+  "anthropic_model": "claude-sonnet-4-5"
+}
