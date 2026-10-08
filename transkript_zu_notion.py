@@ -245,7 +245,7 @@ def create_transcript_page(title, customer_id, transcript_text, original_filenam
         return {"object": "block", "type": "paragraph", "paragraph": {"rich_text": [{"text": {"content": text}}]}}
     def bullet(text):
         return {"object": "block", "type": "bulleted_list_item", "bulleted_list_item": {"rich_text": [{"text": {"content": text}}]}}
-    def callout(text, icon="i", color="blue_background"):
+    def callout(text, icon="💡", color="blue_background"):
         return {"object": "block", "type": "callout", "callout": {
             "rich_text": [{"text": {"content": text}}], "icon": {"type": "emoji", "emoji": icon}, "color": color}}
 
@@ -253,14 +253,14 @@ def create_transcript_page(title, customer_id, transcript_text, original_filenam
     if analysis:
         if analysis.get("zusammenfassung"):
             children.append(heading("Zusammenfassung"))
-            children.append(callout(analysis["zusammenfassung"], "N", "gray_background"))
+            children.append(callout(analysis["zusammenfassung"], "📌", "gray_background"))
         if analysis.get("fragen"):
             children.append(heading("Offene Fragen"))
             for f in analysis["fragen"]:
                 children.append(bullet(f))
         if analysis.get("ist_testimonial"):
             children.append(heading("Testimonial-Potenzial"))
-            children.append(callout(analysis.get("testimonial_begruendung", ""), "*", "yellow_background"))
+            children.append(callout(analysis.get("testimonial_begruendung", ""), "⭐", "yellow_background"))
             for q in analysis.get("testimonial_zitate", []):
                 children.append({"object": "block", "type": "quote",
                                  "quote": {"rich_text": [{"text": {"content": q}}]}})
