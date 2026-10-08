@@ -83,8 +83,20 @@ bash watcher/installieren.sh
 Ab jetzt reicht es, eine Audiodatei in den Ordner zu legen. Log mitlesen:
 
 ```bash
-tail -f ~/Desktop/WhatsApp-Audio/.logs/waechter.log
+tail -f ~/Library/Logs/com.local.whatsapp-transkription.log
 ```
+
+### Wichtig bei Ordnern unter Desktop/Dokumente/Downloads
+
+macOS schützt diese drei Ordner. Ein Autostart-Dienst (LaunchAgent) darf dort
+**nicht** lesen, bis du ihm einmalig **Vollzugriff auf die Festplatte** gibst
+(System-Einstellungen → Datenschutz & Sicherheit → Vollzugriff auf die
+Festplatte → `/bin/bash` bzw. das Terminal hinzufügen, dann Wächter neu laden).
+
+Alternative ohne jede Berechtigung: Lege den Eingangs-Ordner **außerhalb** dieser
+drei (z. B. `~/WhatsApp-Audio-Eingang` direkt im Benutzerordner). Dann läuft der
+Wächter sofort. Für den gewohnten Schnellzugriff kannst du einen Alias auf den
+Schreibtisch legen.
 
 Wieder abschalten:
 

@@ -10,12 +10,14 @@ CFG="$REPO/konfiguration.json"
 WATCH_DIR="$(python3 -c "import json,os;print(os.path.expanduser(json.load(open('$CFG'))['audio_ordner']))")"
 LABEL="${1:-com.local.whatsapp-transkription}"
 PLIST="$HOME/Library/LaunchAgents/${LABEL}.plist"
+LOGFILE="$HOME/Library/Logs/${LABEL}.log"   # bewusst AUSSERHALB des beobachteten Ordners
 
-mkdir -p "$HOME/Library/LaunchAgents" "$WATCH_DIR/.logs"
+mkdir -p "$HOME/Library/LaunchAgents" "$HOME/Library/Logs" "$WATCH_DIR/.logs"
 
 sed -e "s|__LABEL__|${LABEL}|g" \
     -e "s|__REPO__|${REPO}|g" \
     -e "s|__WATCH_DIR__|${WATCH_DIR}|g" \
+    -e "s|__LOGFILE__|${LOGFILE}|g" \
     "$REPO/watcher/waechter.plist.vorlage" > "$PLIST"
 
 # Neu laden (falls schon aktiv)
@@ -26,5 +28,9 @@ echo "Waechter installiert: $PLIST"
 echo "Beobachteter Ordner:  $WATCH_DIR"
 echo ""
 echo "Test: eine Audiodatei (.opus/.m4a/...) in den Ordner legen."
-echo "Log:  tail -f \"$WATCH_DIR/.logs/waechter.log\""
+echo "Log:  tail -f \"$LOGFILE\""
 echo "Stoppen: bash \"$REPO/watcher/entfernen.sh\""
+echo ""
+echo "WICHTIG: Liegt der beobachtete Ordner unter Desktop/Dokumente/Downloads,"
+echo "braucht der Hintergrunddienst einmalig 'Vollzugriff auf Festplatte'"
+echo "(System-Einstellungen -> Datenschutz & Sicherheit). Siehe EINRICHTUNG.md."

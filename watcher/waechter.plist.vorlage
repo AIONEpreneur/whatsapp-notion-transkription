@@ -25,10 +25,12 @@
     <key>RunAtLoad</key>
     <false/>
 
+    <!-- Log MUSS ausserhalb des beobachteten Ordners liegen, sonst loest
+         jedes Log-Schreiben den Waechter erneut aus (Endlosschleife). -->
     <key>StandardOutPath</key>
-    <string>__WATCH_DIR__/.logs/waechter.log</string>
+    <string>__LOGFILE__</string>
     <key>StandardErrorPath</key>
-    <string>__WATCH_DIR__/.logs/waechter.log</string>
+    <string>__LOGFILE__</string>
 
     <key>EnvironmentVariables</key>
     <dict>
