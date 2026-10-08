@@ -1,6 +1,6 @@
 {
-  "audio_ordner": "~/Desktop/WhatsApp-Audio",
-  "transkripte_ordner": "~/Desktop/WhatsApp-Audio/Transkripte",
+  "audio_ordner": "~/WhatsApp-Audio-Eingang",
+  "transkripte_ordner": "~/WhatsApp-Audio-Eingang/Transkripte",
   "whisper_modell": "~/whisper-modelle/ggml-large-v3-turbo.bin",
   "env_datei": "~/.config/whatsapp-workflow/.env",
   "crm_db_id": "HIER-DEINE-CRM-DATENBANK-ID",
